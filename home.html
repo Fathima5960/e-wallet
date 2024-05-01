@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Wallet</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      table th {
+        font-size: larger;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body style="font-family: Merienda">
+    <div class="container mt-4 p-3 bg-primary-subtle">
+      <div class="row">
+        <div class="col ms-4 mt-4">
+          <div class="d-flex justify-content-between">
+            <h4 id="profilename" style="color: #000080">
+              <i class="fa-solid fa-user fa-fade"></i> Welcome User
+            </h4>
+            <button onclick="logout()" class="btn btn-outline-danger fw-medium">
+              Logout <i class="fa-solid fa-power-off"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <p
+        class="text-center mt-5"
+        style="color: rgb(101, 7, 189); font-size: 60px"
+      >
+        <span style="color: blue">E</span>-<span style="color: blue">W</span
+        >allet
+      </p>
+
+      <div
+        class="row text-center d-flex align-items-center justify-content-around"
+      >
+        <div
+          class="col-6 mt-2"
+          style="
+            height: 180px;
+            width: 200px;
+            background-color: rgb(252, 213, 141);
+          "
+        >
+          <h3 class="pt-2">Total Balance</h3>
+          <h3 class="mt-5" id="resultbalance">0 Rs</h3>
+        </div>
+
+        <div
+          class="col-6 mt-2"
+          style="
+            height: 180px;
+            width: 200px;
+            background-color: rgb(172, 248, 223);
+          "
+        >
+          <h3 class="pt-2">Total Expense</h3>
+          <h3 class="mt-5" id="expensedisplay">0 Rs</h3>
+        </div>
+      </div>
+      <div
+        class="row text-center d-flex align-items-center justify-content-around"
+      >
+        <div class="col-6 mt-2">
+          <div class="col-8 mt-3" style="margin-left: 110px">
+            <input
+              type="text"
+              name=""
+              id="incometype"
+              class="form-control"
+              placeholder="Enter Income Type"
+            />
+            <input
+              type="text"
+              name=""
+              id="incomeamnt"
+              class="form-control mt-3"
+              placeholder="Enter amount"
+            />
+            <div class="d-grid gap-2 mt-3">
+              <button
+                class="btn btn-success"
+                type="button"
+                onclick="addIncome()"
+              >
+                Add Income
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 mt-2">
+          <div class="col-8 mt-3" style="margin-left: 110px">
+            <input
+              type="text"
+              name=""
+              id="expensetype"
+              class="form-control"
+              placeholder="Enter Expense Type"
+            />
+            <input
+              type="text"
+              name=""
+              id="expenseamnt"
+              class="form-control mt-3"
+              placeholder="Enter Amount"
+            />
+            <div class="d-grid gap-2 mt-3">
+              <button
+                class="btn btn-primary"
+                type="button"
+                onclick="addExpense()"
+              >
+                Add Expense
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <button class="btn btn-warning" type="button" onclick="clearall()">
+            Clear All<i class="fa-solid fa-eraser"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row text-center mt-5">
+        <h1>Income and Expense Details</h1>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-6">
+          <h3 class="text-primary">Income</h3>
+          <table class="table mx-auto">
+            <thead class="table-warning">
+              <tr style="border-bottom: 5px pink solid">
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Balance</th>
+                <th>Date&Time</th>
+              </tr>
+            </thead>
+            <tbody id="incometableresult"></tbody>
+          </table>
+        </div>
+        <div class="col-6">
+          <h3 class="text-primary">Expense</h3>
+          <table class="table mx-auto">
+            <thead class="table-warning">
+              <tr style="border-bottom: 5px pink solid">
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Balance</th>
+                <th>Date&Time</th>
+              </tr>
+            </thead>
+            <tbody id="expensetableresult"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="./smart.js"></script>
+  </body>
+</html>

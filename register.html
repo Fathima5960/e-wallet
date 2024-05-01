@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="font-family: Merienda" class="bg-primary-subtle">
+    <p
+      class="text-center mt-5"
+      style="color: rgb(101, 7, 189); font-size: 60px"
+    >
+      <span style="color: blue">E</span>-<span style="color: blue">W</span>allet
+    </p>
+
+    <div class="container">
+      <div class="row" style="margin-top: 70px">
+        <div class="col-6">
+          <img
+            src="https://cdn.dribbble.com/users/183207/screenshots/2614645/media/74bd9d1d9de8733ac84ebcf47391e785.gif"
+            alt=""
+            width="600px"
+            height="400px"
+            style="border-radius: 50px"
+          />
+        </div>
+        <div class="col-6 shadow">
+          <h1 class="text-center mt-4" style="color: rgb(101, 7, 189)">
+            <b> Register</b>
+          </h1>
+
+          <div class="col-8" style="margin-left: 110px">
+            <input
+              type="text"
+              placeholder="Username"
+              id="reg_uname"
+              class="form-control mt-3"
+            />
+            <input
+              type="email"
+              placeholder="Email Id"
+              class="form-control mt-3"
+              id="reg_email"
+            />
+            <input
+              type="text"
+              placeholder="Password"
+              class="form-control mt-3"
+              id="reg_pswd"
+            />
+            <div class="text-center mt-4">
+              <button
+                class="btn btn-success"
+                type="button"
+                onclick="register()"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./smart.js"></script>
+  </body>
+</html>
